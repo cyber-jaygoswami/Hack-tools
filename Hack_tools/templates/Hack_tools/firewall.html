@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content%}
+
+<div class="ScanContainer">
+
+  <!-- Pills content -->
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+      <form action="{% url 'FirewallPage' %}" method="post">
+        {% csrf_token %}
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="firewallDomain">Detect if WAF Present </label>
+          <input type="url" id="firewallDomain"  name="firewallDomain" class="form-control" placeholder="https://example.com" />
+        </div>
+        <!-- Submit button -->
+
+        <button type="submit" class=" btn btn-success btn-block mb-4 " name="submitButton" id="submitButton" onclick="load()">
+          Scan
+        </button>
+
+        <!-- Loading Button        -->
+        <button type="button" disabled="true" class=" btn btn-success btn-block mb-4" id="loadingButton">
+        <div class="spinner-border text-light spinner-border-sm" role="status">
+        </div>
+          Scanning
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Pills content -->
+</div>
+
+<script type="text/javascript">
+        document.getElementById("loadingButton").style.display="none";
+         function load() {
+              document.getElementById("submitButton").style.display="none";
+              document.getElementById("loadingButton").style.display="inline";
+         }
+</script>
+{% endblock %}

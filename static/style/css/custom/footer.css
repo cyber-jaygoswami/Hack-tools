@@ -1,0 +1,14 @@
+.footer1{
+    background-color:  black !important;
+    color : white !important ;
+    margin-top: 48% !important;
+}
+.linksDiv{
+    margin-left: 17vw;
+}
+@media only screen and (max-width: 868px) {
+    /* For mobile phones: */
+    .footer1 {
+      display: none;
+    }
+  }

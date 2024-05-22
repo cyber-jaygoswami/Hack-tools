@@ -1,0 +1,77 @@
+.slideBox {
+  width: 95%;
+  height: 550px;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../images/Slideshow/PortScanning.jpg");
+  background-size: 100% 100%;
+  animation: slider 20s infinite linear;
+  margin-top : 40px;
+  /*border-radius : 20px;*/
+}
+/*
+@keyframes slider {
+  0% {
+    background-image: url("../../../images/Slideshow/PortScanning.jpg");
+  }
+  33% {
+    background-image: url("../../../images/Slideshow/Firewall.jpg");
+  }
+  66% {
+    background-image: url("../../../images/Slideshow/Ping.jpg");
+  }
+}
+*/
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 10;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+
+
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .back-video {
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 1068px) {
+  /* For mobile phones: */
+  .slideBox {
+    width: 40%;
+    height: 300px;
+    margin-top: 5px;
+  }
+}
+@media only screen and (max-width: 968px) {
+  /* For mobile phones: */
+  .slideBox {
+    width: 30%;
+    height: 200px;
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (max-width: 868px) {
+  /* For mobile phones: */
+  .slideBox {
+    display: none;
+  }
+  .back-video{
+    height: 100%;
+  }
+}

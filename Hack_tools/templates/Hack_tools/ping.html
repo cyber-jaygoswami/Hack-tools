@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content%}
+
+<div class="ScanContainer">
+
+  <!-- Pills content -->
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+      <form action="{% url 'PingPage' %}" method="post">
+        {% csrf_token %}
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="scanDomain">Check Website Is Up or Down</label>
+          <input type="text" id="scanDomain"  name="scanDomain" class="form-control" placeholder="Enter website Domain Name or IP Address" required="true"/>
+        </div>
+
+        <!-- Submit button -->
+
+        <button type="submit" class=" btn btn-success btn-block mb-4 " name="submitButton" id="submitButton" onclick="load()">
+          Ping It
+        </button>
+
+        <!-- Loading Button        -->
+        <button type="button" disabled="true" class=" btn btn-success btn-block mb-4" id="loadingButton">
+        <div class="spinner-border text-light spinner-border-sm" role="status">
+        </div>
+          Pinging
+        </button>
+
+
+        <!-- Result-->
+        {% if status %}
+        {% if status == "Up" %}
+        <button type="Button" class="btn btn-success btn-block mb-4 " style="margin-left:10px">Host is Up</button>
+        {% elif status == "Down" %}
+        <button type="Button" class="btn btn-danger btn-block mb-4 " style="margin-left:10px">Host is Down</button>
+        {%else %}
+        <button type="Button" class="btn btn-danger btn-block mb-4 " style="margin-left:10px">Destination Unreachable</button>
+        {% endif %}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Pills content -->
+</div>
+
+<script type="text/javascript">
+        document.getElementById("loadingButton").style.display="none";
+         function load() {
+              document.getElementById("submitButton").style.display="none";
+              document.getElementById("loadingButton").style.display="inline";
+         }
+</script>
+{% endblock %}

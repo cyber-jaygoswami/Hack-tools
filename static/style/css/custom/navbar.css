@@ -1,0 +1,22 @@
+.navbar{
+    border: 2px solid black !important;
+    background-color: black !important;
+    
+}
+.navbar-brand{
+    color: white  !important;
+}
+.nav-link{
+    color: white !important;
+}
+.navbar-nav{
+    margin-left: 22vw !important;
+}
+
+.logo{
+    width: 45px !important;
+    height: 35px !important;
+}
+
+
+
